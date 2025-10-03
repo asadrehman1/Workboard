@@ -37,7 +37,6 @@ export const getWorkspace = async ({
 }: {
   workspaceId: string;
 }) => {
-  try {
     const { databases, account } = await createSessionClient();
     const user = await account.get();
 
@@ -48,7 +47,7 @@ export const getWorkspace = async ({
     });
 
     if (!member) {
-      return null;
+      throw new Error("Unauthorized");
     }
 
     const workspace = await databases.getDocument<Workspace>(
@@ -58,9 +57,6 @@ export const getWorkspace = async ({
     );
 
     return workspace;
-  } catch {
-    return null;
-  }
 };
 
 export const getWorkspaceInfo = async ({

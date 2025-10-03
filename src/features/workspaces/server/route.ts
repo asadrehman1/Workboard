@@ -212,8 +212,6 @@ const app = new Hono()
         workspaceId,
       });
 
-      console.log(member, 'member');
-
       if (member) {
         return c.json({ error: "Already a member" }, 400);
       }
