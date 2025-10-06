@@ -34,12 +34,14 @@ interface CreateTaskFormProps {
   onCancel?: () => void;
   projectOptions: { id: string; name: string; imageUrl: string }[];
   memberOptions: { id: string; name: string }[];
+  initialStatus?: TaskStatus;
 }
 
 export const CreateTaskForm = ({
   onCancel,
   projectOptions,
   memberOptions,
+  initialStatus,
 }: CreateTaskFormProps) => {
   type CreateTaskInput = z.infer<typeof createTaskSchema>;
   const resolver = zodResolver(createTaskSchema) as Resolver<
@@ -52,6 +54,7 @@ export const CreateTaskForm = ({
   const form = useForm<CreateTaskInput>({
     defaultValues: {
       workspaceId,
+      status: initialStatus ?? undefined,
     },
     resolver,
   });
@@ -154,8 +157,9 @@ export const CreateTaskForm = ({
                   <FormItem>
                     <FormLabel>Status</FormLabel>
                     <Select
-                      defaultValue={field.value}
+                      value={field.value}
                       onValueChange={field.onChange}
+                      disabled={!!initialStatus}
                     >
                       <FormControl>
                         <SelectTrigger>
