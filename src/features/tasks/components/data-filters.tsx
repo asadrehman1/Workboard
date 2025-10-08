@@ -11,8 +11,8 @@ import { useGetProjects } from "@/features/projects/api/use-get-projects";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 import { FolderIcon, ListChecksIcon, UserIcon } from "lucide-react";
 import { TaskStatus } from "../types";
-import { useTaskFilters } from "../hooks/use-task-filters";
 import { DatePicker } from "@/components/date-picker";
+import { useTaskFilters } from "../hooks/use-task-filters";
 
 interface DataFiltersProps {
   hideProjectFilter?: boolean;
