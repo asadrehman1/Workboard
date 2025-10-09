@@ -5,14 +5,14 @@ import { MemberAvatar } from "@/features/workspaces/components/member-avatar";
 import { ProjectAvatar } from "@/features/projects/components/project-avatar";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 import { useRouter } from "next/navigation";
+import { Member } from "@/features/members/types";
 
 interface EventCardProps {
   id: string;
   title: string;
   status: TaskStatus;
   project: Project;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  assignee: any;
+  assignee: Member;
 }
 
 const statusColorMap: Record<TaskStatus, string> = {
