@@ -17,18 +17,21 @@ export const TaskDescription = ({ task }: TaskDescriptionProps) => {
   const { mutate: updateTask, isPending } = useUpdateTask();
 
   const handleSave = () => {
-    updateTask({
-      json: {
-        description,
+    updateTask(
+      {
+        json: {
+          description,
+        },
+        param: {
+          taskId: task.$id,
+        },
       },
-      param: {
-        taskId: task.$id,
-      },
-    },{
+      {
         onSuccess: () => {
           setIsEditing(false);
-        }
-    });
+        },
+      }
+    );
   };
 
   useEffect(() => {
