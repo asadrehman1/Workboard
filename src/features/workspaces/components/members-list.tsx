@@ -20,6 +20,7 @@ import { useDeleteMember } from "@/features/members/api/use-delete-member";
 import { useUpdateMember } from "@/features/members/api/use-update-member";
 import { MemberRole } from "@/features/members/types";
 import { useConfirm } from "@/hooks/use-confirm";
+import { PageLoader } from "@/components/page-loader";
 
 export const MembersList = () => {
   const workspaceId = useWorkspaceId();
@@ -28,7 +29,7 @@ export const MembersList = () => {
     "This will remove the member from the workspace. This action cannot be undone.",
     "destructive"
   );
-  const { data } = useGetMembers({ workspaceId });
+  const { data, isLoading } = useGetMembers({ workspaceId });
   const { mutate: deleteMember, isPending: isDeletingMember } =
     useDeleteMember();
   const { mutate: updateMember, isPending: isUpdatingMember } =
@@ -50,6 +51,10 @@ export const MembersList = () => {
   const onUpdateMember = (memberId: string, role: MemberRole) => {
     updateMember({ json: { role }, param: { memberId } });
   };
+
+  if (isLoading) {
+    return <PageLoader />;
+  }
 
   return (
     <Card className="w-full h-full border-none shadow-none">

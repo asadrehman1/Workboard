@@ -38,7 +38,7 @@ export const EditWorkspaceForm = ({
 }: EditWorkspaceFormProps) => {
   const router = useRouter();
   const [origin, setOrigin] = useState("");
-  
+
   const { mutate, isPending } = useUpdateWorkspace();
   const { mutate: deleteWorkspace, isPending: isDeletingWorkspacePending } =
     useDeleteWorkspace();
@@ -113,14 +113,7 @@ export const EditWorkspaceForm = ({
       ...values,
       image: values.image instanceof File ? values.image : "",
     };
-    mutate(
-      { form: finalValues, param: { workspaceId: initialValues.$id } },
-      {
-        onSuccess: () => {
-          form.reset();
-        },
-      }
-    );
+    mutate({ form: finalValues, param: { workspaceId: initialValues.$id } });
   };
   return (
     <div className="flex flex-col gap-y-4">
@@ -157,6 +150,7 @@ export const EditWorkspaceForm = ({
                       <FormLabel>Workspace Name</FormLabel>
                       <FormControl>
                         <Input
+                          disabled={isPending}
                           type="text"
                           placeholder="Enter workspace name"
                           {...field}

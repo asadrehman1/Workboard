@@ -35,7 +35,7 @@ export const EditProjectForm = ({
   initialValues,
 }: EditProjectFormProps) => {
   const router = useRouter();
-  const { mutate, isPending } = useUpdateProject();
+  const { mutate, isPending: isPendingUpdateProject } = useUpdateProject();
   const { mutate: deleteProject, isPending: isDeletingProjectPending } =
     useDeleteProject();
   const [DeleteDialog, confirmDelete] = useConfirm(
@@ -77,15 +77,10 @@ export const EditProjectForm = ({
       ...values,
       image: values.image instanceof File ? values.image : "",
     };
-    mutate(
-      { form: finalValues, param: { projectId: initialValues.$id } },
-      {
-        onSuccess: () => {
-          form.reset();
-        },
-      }
-    );
+    mutate({ form: finalValues, param: { projectId: initialValues.$id } });
   };
+
+  const isPending = isPendingUpdateProject || isDeletingProjectPending;
   return (
     <div className="flex flex-col gap-y-4">
       <DeleteDialog />
@@ -123,6 +118,7 @@ export const EditProjectForm = ({
                       <FormLabel>Project Name</FormLabel>
                       <FormControl>
                         <Input
+                          disabled={isPending}
                           type="text"
                           placeholder="Enter project name"
                           {...field}
@@ -240,7 +236,7 @@ export const EditProjectForm = ({
               size={"sm"}
               variant={"destructive"}
               type="button"
-              disabled={isDeletingProjectPending}
+              disabled={isPending}
               onClick={handleDelete}
             >
               Delete Workspace
