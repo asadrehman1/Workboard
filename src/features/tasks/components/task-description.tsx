@@ -24,8 +24,11 @@ export const TaskDescription = ({ task }: TaskDescriptionProps) => {
       param: {
         taskId: task.$id,
       },
+    },{
+        onSuccess: () => {
+          setIsEditing(false);
+        }
     });
-    setIsEditing(false);
   };
 
   useEffect(() => {
