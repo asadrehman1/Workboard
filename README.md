@@ -34,7 +34,7 @@ Manage your workspaces, projects, and tasks, visualize progress in Kanban, Calen
 - **Framework**: Next.js  
 - **Backend & Database**: Appwrite
 - **API**: Hono.js RPC Integration
-- **UI Library:**: Shadcn/UI + TailwindCSS       
+- **UI Library**: Shadcn/UI + TailwindCSS       
 - **State Management**: Tanstack/React Query + nuqs     
 - **File Storage**: Appwrite Storage
 - **Authentication**: OAuth (GitHub) + Email
