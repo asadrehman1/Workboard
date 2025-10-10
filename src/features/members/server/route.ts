@@ -29,14 +29,20 @@ const app = new Hono()
         return c.json({ error: "Unauthorized" }, 401);
       }
 
-      const members = await databases.listDocuments<Member>(DATABASE_ID, MEMBERS_ID, [
-        Query.equal("workspaceId", workspaceId),
-      ]);
+      const members = await databases.listDocuments<Member>(
+        DATABASE_ID,
+        MEMBERS_ID,
+        [Query.equal("workspaceId", workspaceId)]
+      );
 
       const populatedtMembers = await Promise.all(
         members.documents.map(async (member) => {
           const user = await users.get(member.userId);
-          return { ...member, name: user.name, email: user.email };
+          return {
+            ...member,
+            name: user.name || user.email,
+            email: user.email,
+          };
         })
       );
 
@@ -126,7 +132,7 @@ const app = new Hono()
       }
 
       await databases.updateDocument(DATABASE_ID, MEMBERS_ID, memberId, {
-        role
+        role,
       });
 
       return c.json({

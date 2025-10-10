@@ -1,5 +1,4 @@
 "use client";
-import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -25,6 +24,7 @@ import {
 
 import { registerSchema } from "../schemas";
 import { useRegister } from "../api/use-register";
+import { signUpWithGithub } from "@/lib/oauth";
 
 export const SignUpCard = () => {
   const { mutate, isPending } = useRegister();
@@ -120,15 +120,7 @@ export const SignUpCard = () => {
       </div>
       <CardContent className="p-7 flex flex-col gap-y-4">
         <Button
-          variant="secondary"
-          size="lg"
-          disabled={isPending}
-          className="w-full"
-        >
-          <FcGoogle className="mr-2 size-5" />
-          Login with Google
-        </Button>
-        <Button
+          onClick={() => signUpWithGithub()}
           variant="secondary"
           size="lg"
           disabled={isPending}

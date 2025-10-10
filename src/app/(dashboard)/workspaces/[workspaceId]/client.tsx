@@ -185,13 +185,13 @@ export const MembersList = ({ data, total }: MembersListProps) => {
           {data.map((member) => (
             <li key={member.$id}>
               <Card className="shadow-none rounded-lg overflow-hidden">
-                <CardContent className="p-3 flex flex-col items-center gap-x-2">
+                <CardContent className="p-3 flex flex-col items-center gap-y-2 w-full">
                   <MemberAvatar name={member.name} className="size-12" />
-                  <div className="flex flex-col intems-center overflow-hidden">
-                    <p className="text-lg font-medium line-clamp-1">
+                  <div className="flex flex-col items-center text-center w-full overflow-hidden">
+                    <p className="text-lg font-medium line-clamp-1 truncate w-full">
                       {member.name}
                     </p>
-                    <p className="text-sm text-muted-foreground line-clamp-1">
+                    <p className="text-sm text-muted-foreground line-clamp-1 truncate w-full">
                       {member.email}
                     </p>
                   </div>
