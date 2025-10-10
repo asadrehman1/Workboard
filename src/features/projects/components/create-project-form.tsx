@@ -91,6 +91,7 @@ export const CreateProjectForm = ({ onCancel }: CreateProjectFormProps) => {
                     <FormLabel>Project Name</FormLabel>
                     <FormControl>
                       <Input
+                        disabled={isPending}
                         type="text"
                         placeholder="Enter project name"
                         {...field}

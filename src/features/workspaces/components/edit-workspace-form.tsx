@@ -39,7 +39,7 @@ export const EditWorkspaceForm = ({
   const router = useRouter();
   const [origin, setOrigin] = useState("");
 
-  const { mutate, isPending } = useUpdateWorkspace();
+  const { mutate, isPending: isUpdatingWorkspace } = useUpdateWorkspace();
   const { mutate: deleteWorkspace, isPending: isDeletingWorkspacePending } =
     useDeleteWorkspace();
   const { mutate: resetInviteCode, isPending: isResettingInviteCodePending } =
@@ -54,6 +54,11 @@ export const EditWorkspaceForm = ({
     "Are you sure you want to reset the invite link?",
     "destructive"
   );
+
+  const isPending =
+    isUpdatingWorkspace ||
+    isDeletingWorkspacePending ||
+    isResettingInviteCodePending;
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const form = useForm<z.infer<typeof updateWorkspaceSchema>>({
@@ -280,7 +285,7 @@ export const EditWorkspaceForm = ({
               size={"sm"}
               variant={"destructive"}
               type="button"
-              disabled={isPending || isResettingInviteCodePending}
+              disabled={isPending}
               onClick={handleResetInviteCode}
             >
               Reset Invite Link
@@ -302,7 +307,7 @@ export const EditWorkspaceForm = ({
               size={"sm"}
               variant={"destructive"}
               type="button"
-              disabled={isPending || isDeletingWorkspacePending}
+              disabled={isPending}
               onClick={handleDelete}
             >
               Delete Workspace
