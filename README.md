@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧠 Workboard
 
-## Getting Started
+**Collaborate, Organize, and Execute — all in one place.**  
+Workboard is a powerful project management platform inspired by Jira — built with Next.js, Appwrite, Hono.js RPC, Tailwind CSS and Shadcn UI.
+Manage your workspaces, projects, and tasks, visualize progress in Kanban, Calendar, or Table views, and collaborate with your team in real-time.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Features
+
+- **🏢 Create and manage multiple workspaces**
+- **📊 Organize work with projects and epics**
+- **✅ Assign and track tasks effortlessly**
+- **📋 Kanban board with drag-and-drop functionality**
+- **🗃️ Table view for structured task management**
+- **📅 Calendar view for scheduling and deadlines**
+- **✉️ Invite members via secure invite links**
+- **⚙️ Manage workspace and project settings**
+- **🖼️ Upload avatars and attachments**
+- **🔌 Appwrite SDK integration for database, storage, and authentication**
+- **⚛️ Next.js 14 with server actions**
+- **🎨 Shadcn UI + TailwindCSS for modern, elegant design**
+- **🔍 Advanced search and filtering**
+- **📈 Analytics dashboard to visualize performance**
+- **👥 Role-based permissions (Admin / Member)**
+- **🔒 Authentication via OAuth (GitHub) and Email**
+- **📱 Fully responsive for all devices**
+- **🚀 Lightweight API powered by Hono.js with RPC Integration**
+
+---
+
+## 🛠 Tech Stack
+
+- **Framework**: Next.js  
+- **Backend & Database**: Appwrite
+- **API**: Hono.js RPC Integration
+- **UI Library:**: Shadcn/UI + TailwindCSS       
+- **State Management**: Tanstack/React Query + nuqs     
+- **File Storage**: Appwrite Storage
+- **Authentication**: OAuth (GitHub) + Email
+- **Deployment**: Vercel
+
+---
+
+## 📦 Environment Variables
+
+Create a `.env` file and add the following:
+
+```env
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+
+NEXT_PUBLIC_APPWRITE_ENDPOINT=https://fra.cloud...
+NEXT_PUBLIC_APPWRITE_PROJECT=68d...
+
+NEXT_PUBLIC_APPWRITE_DATABASE_ID=68d...
+
+NEXT_PUBLIC_APPWRITE_WORKSPACES_ID=workspaces
+NEXT_PUBLIC_APPWRITE_PROJECTS_ID=projects
+NEXT_PUBLIC_APPWRITE_MEMBERS_ID=members
+NEXT_PUBLIC_APPWRITE_TASKS_ID=tasks
+
+NEXT_PUBLIC_APPWRITE_IMAGES_BUCKET_ID=68d...
+
+NEXT_APPWRITE_KEY=standard_539...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> **Note:** Replace these with your own credentials in production.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 💻 Setup & Run Locally
 
-## Learn More
+```bash
+# Clone the repository
+git clone https://github.com/asadrehman1/Workboard.git
+cd workboard
 
-To learn more about Next.js, take a look at the following resources:
+# Install dependencies
+npm install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Run the development server
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open [http://localhost:3000](http://localhost:3000) to view in your browser.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 Author
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Asad Rehman** — [GitHub](https://github.com/asadrehman1)  
+
+---
+
+## ⚡ License
+
+MIT © 2025 Asad Rehman
