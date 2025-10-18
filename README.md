@@ -44,50 +44,6 @@ Manage your workspaces, projects, and tasks, visualize progress in Kanban, Calen
 
 ---
 
-## 📦 Environment Variables
-
-Create a `.env` file and add the following:
-
-```env
-NEXT_PUBLIC_APP_URL=http://localhost:3000
-
-NEXT_PUBLIC_APPWRITE_ENDPOINT=https://fra.cloud...
-NEXT_PUBLIC_APPWRITE_PROJECT=68d...
-
-NEXT_PUBLIC_APPWRITE_DATABASE_ID=68d...
-
-NEXT_PUBLIC_APPWRITE_WORKSPACES_ID=workspaces
-NEXT_PUBLIC_APPWRITE_PROJECTS_ID=projects
-NEXT_PUBLIC_APPWRITE_MEMBERS_ID=members
-NEXT_PUBLIC_APPWRITE_TASKS_ID=tasks
-
-NEXT_PUBLIC_APPWRITE_IMAGES_BUCKET_ID=68d...
-
-NEXT_APPWRITE_KEY=standard_539...
-```
-
-> **Note:** Replace these with your own credentials in production.
-
----
-
-## 💻 Setup & Run Locally
-
-```bash
-# Clone the repository
-git clone https://github.com/asadrehman1/Workboard.git
-cd workboard
-
-# Install dependencies
-npm install
-
-# Run the development server
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) to view in your browser.
-
----
-
 ## 📝 Author
 
 **Asad Rehman** — [GitHub](https://github.com/asadrehman1)  
