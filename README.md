@@ -1,7 +1,7 @@
 # 🧠 Workboard
 
-**Collaborate, Organize, and Execute — all in one place.**  
-Workboard is a powerful project management platform inspired by Jira — built with Next.js, Appwrite, Hono.js RPC, Tailwind CSS and Shadcn UI.
+**Collaborate, Organize, and Execute in one place.**  
+Workboard is a powerful project management platform inspired by Jira, built with Next.js, Appwrite, Hono.js RPC, Tailwind CSS and Shadcn UI.
 Manage your workspaces, projects, and tasks, visualize progress in Kanban, Calendar, or Table views, and collaborate with your team in real-time.
 
 ![Workboard Preview](./public/workboard-preview.png)
